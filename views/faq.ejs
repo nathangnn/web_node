@@ -1,0 +1,58 @@
+<%- include("_header") -%>
+    <nav class="navbar2 navbar-expand-lg navbar-light navbar-collapse bg-light">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" class="display-4">
+                <a class="nav-link" style="padding-left:2ch">Filtre par domaine :</a>
+            </li>
+            <li class="nav-item" class="display-4">
+                <a class="nav-link" href="/faq">All</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/faq/WebApp">WebApp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/faq/Serveur">Serveur</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/faq/JavaScript">JavaScript</a>
+            </li>
+        </ul>
+    </nav>
+    <br/>
+    <form action="/faq/query" method="post" class="form-inline">
+        <i class="fas fa-search" aria-hidden="true">Recherche par mot :</i>
+        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search " name="query">
+    </form>
+    <br/>
+    <div class="table-responsive-sm">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="padding-right: 7ch;">Domaine</th>
+                    <th>Question</th>
+                    <th>Reponse</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const faq of model) { %>
+                    <tr>
+                        <td>
+                            <%= faq.domaine %>
+                        </td>
+                        <td>
+                            <%= faq.question %>
+                        </td>
+                        <td>
+                            <%= faq.reponse %>
+                        </td>
+                        <td class="d-print-none">
+                            <a type="button" class="close" style="color: red;" aria-label="Close" href="/delete/<%= faq.Faq_ID %>"> <span aria-hidden="true">&times;</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+    <%- include("create") -%>
+        <%- include("_footer") -%>

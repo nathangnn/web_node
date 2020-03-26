@@ -1,0 +1,22 @@
+<%- include("_header") -%>
+    <h1 class="display-4" style="text-align: center;">Connexion</h1>
+    <br/>
+    <form action="/signin" method="post">
+        <div class="form-horizontal">
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3" style="margin-left: 4.3ch;" for="usename">Username</label>
+                <div class="col-sm-5">
+                    <input class="form-control" name="username" type="text" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3" style="margin-left: 4.3ch;" for="passord">Password</label>
+                <div class="col-sm-5">
+                    <input class="form-control" name="password" type="password" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <input type="submit" value="Sign in" class="btn btn-default btn-link" style="margin-left: auto;margin-right: auto;" />
+            </div>
+        </div>
+    </form>
